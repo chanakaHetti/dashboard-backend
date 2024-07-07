@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dashboard_backend',
+        'USER': 'root',
+        'PASSWORD': '123456789',
+        'HOST': '127.0.0.1', # Default to localhost
+        'PORT': '3306', # Same as the host port specified in Vagrant config
     }
 }
 

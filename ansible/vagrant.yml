@@ -1,0 +1,19 @@
+---
+- name: Provision Django App on Vagrant
+  hosts: localhost
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
+    # Add other provisioning task here
+    - name: Install Python dependencies from requirements.txt
+      pip:
+        requirements: /srv/dashboard-backend/requirements.txt
+
+    # - name: Start Django development server
+    #   ansible.builtin.command:
+    #     cmd: 'python3 /srv/dashboard-backend/backend/manage.py runserver 0.0.0.0:8051'
